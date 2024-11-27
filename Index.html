@@ -3,24 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hospital Queue Management</title>
+  <title>MediQueue - Patient Interface</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Hospital Queue Management System</h1>
+    <h1>Welcome to MediQueue</h1>
+    <div id="real-time-clock" class="clock"></div>
   </header>
   <main>
-    <section class="queue-info">
+    <!-- New Ticket Button -->
+    <div class="new-ticket">
+      <button id="new-ticket-btn">Get a New Ticket</button>
+    </div>
+
+    <!-- Patient List -->
+    <section class="patient-list">
       <h2>Current Queue</h2>
-      <div id="current-queue">Queue Number: <span id="queue-number">0</span></div>
-      <div id="wait-time">Estimated Wait Time: <span id="wait-minutes">0</span> minutes</div>
+      <ul id="patient-list">
+        <!-- Patient list dynamically populated here -->
+      </ul>
     </section>
-    <section class="get-token">
-      <h2>Get Your Token</h2>
-      <button id="get-token-button">Get Token</button>
-      <div id="token-info">Your Token: <span id="user-token">-</span></div>
-    </section>
+
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
+        <!-- Step 1: Department Selection -->
+        <div id="step-1" class="step active">
+          <h2>Select Department</h2>
+          <div class="department-grid">
+            <button class="department-card" data-department="Consultation">Consultation</button>
+            <button class="department-card" data-department="Laboratory">Laboratory</button>
+            <button class="department-card" data-department="Pharmacy">Pharmacy</button>
+            <button class="department-card" data-department="Dentist">Dentist</button>
+            <button class="department-card" data-department="Radiology">Radiology</button>
+            <button class="department-card" data-department="Dermatology">Dermatology</button>
+            <button class="department-card" data-department="Cardiology">Cardiology</button>
+            <button class="department-card" data-department="Pediatrics">Pediatrics</button>
+          </div>
+          <div class="form-buttons">
+            <button type="button" id="close-popup">Back</button>
+          </div>
+        </div>
+    
+        <!-- Step 2: Enter Patient Details -->
+        <div id="step-2" class="step">
+          <h2>Enter Your Details</h2>
+          <form id="patient-form">
+            <label for="patient-name">Full Name:</label>
+            <input type="text" id="patient-name" required placeholder="Enter your name">
+            <div class="form-buttons">
+              <button type="button" id="back-to-step-1">Back</button>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
   </main>
   <script src="app.js"></script>
 </body>

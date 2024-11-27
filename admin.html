@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
+  <title>MediQueue - Admin Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,34 +11,26 @@
     <h1>Admin Dashboard</h1>
   </header>
   <main>
-    <section class="queue-management">
-      <h2>Queue Management</h2>
-      <div>Current Queue: <span id="admin-queue-number">0</span></div>
-      <button id="next-patient">Next Patient</button>
+    <!-- Patient Queue Section -->
+    <section class="patient-list">
+      <h2>Patient Queue</h2>
+      <ul id="admin-patient-list">
+        <!-- Dynamically populated patient list -->
+      </ul>
+    </section>
+
+    <!-- Department Management Section -->
+    <section class="department-management">
+      <h2>Manage Departments</h2>
+      <ul id="admin-department-list">
+        <!-- Dynamically populated department list -->
+      </ul>
+      <form id="add-department-form">
+        <input type="text" id="new-department" placeholder="Add new department" required>
+        <button type="submit">Add Department</button>
+      </form>
     </section>
   </main>
-  <script>
-    let currentQueue = 0;
-
-    const adminQueueEl = document.getElementById("admin-queue-number");
-    const nextPatientButton = document.getElementById("next-patient");
-
-    nextPatientButton.addEventListener("click", () => {
-      if (currentQueue > 0) {
-        currentQueue--;
-        adminQueueEl.textContent = currentQueue;
-        alert("Next patient called!");
-      } else {
-        alert("No patients in queue.");
-      }
-    });
-
-    // Sync with app.js (simulate communication)
-    setInterval(() => {
-      const patientQueue = parseInt(localStorage.getItem("queueNumber")) || 0;
-      currentQueue = patientQueue;
-      adminQueueEl.textContent = currentQueue;
-    }, 1000);
-  </script>
+  <script src="admin.js"></script>
 </body>
 </html>
