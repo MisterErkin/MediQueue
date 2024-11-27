@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+header {
+  background-color: #2a9df4;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem auto;
+  padding: 1rem;
+  width: 80%;
+}
+
+.queue-info, .get-token {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  color: #2a9df4;
+}
+
+button {
+  background-color: #2a9df4;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2389d4;
+}
+
+#token-info {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Panel - MediQueue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Staff Panel - MediQueue</h1>
+  </header>
+  <main>
+    <section class="queue-overview">
+      <h2>Queue Overview</h2>
+      <div id="queue-details">
+        <p>Current Serving: <span id="current-serving">-</span></p>
+        <p>Next in Queue: <span id="next-in-queue">-</span></p>
+        <p>Remaining Patients: <span id="remaining-patients">0</span></p>
+      </div>
+    </section>
+
+    <section class="actions">
+      <h2>Actions</h2>
+      <button id="serve-next">Serve Next Patient</button>
+      <button id="skip-patient">Skip Current Patient</button>
+    </section>
+  </main>
+  <script>
+    // Initial queue data
+    let queue = [];
+    let currentServing = null;
+
+    // DOM Elements
+    const currentServingEl = document.getElementById("current-serving");
+    const nextInQueueEl = document.getElementById("next-in-queue");
+    const remainingPatientsEl = document.getElementById("remaining-patients");
+    const serveNextBtn = document.getElementById("serve-next");
+    const skipPatientBtn = document.getElementById("skip-patient");
+
+    // Populate initial queue (for simulation)
+    for (let i = 1; i <= 10; i++) {
+      queue.push(`Token ${i}`);
+    }
+
+    // Update the queue display
+    function updateQueueDisplay() {
+      currentServingEl.textContent = currentServing || "None";
+      nextInQueueEl.textContent = queue[0] || "None";
+      remainingPatientsEl.textContent = queue.length;
+    }
+
+    // Serve the next patient
+    serveNextBtn.addEventListener("click", () => {
+      if (queue.length > 0) {
+        currentServing = queue.shift();
+        updateQueueDisplay();
+        alert(`Serving: ${currentServing}`);
+      } else {
+        alert("No more patients in the queue.");
+      }
+    });
+
+    // Skip the current patient
+    skipPatientBtn.addEventListener("click", () => {
+      if (currentServing) {
+        alert(`Skipped: ${currentServing}`);
+        currentServing = null;
+        updateQueueDisplay();
+      } else {
+        alert("No patient is currently being served.");
+      }
+    });
+
+    // Initialize the queue display
+    updateQueueDisplay();
+  </script>
+</body>
+</html>

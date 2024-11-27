@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+  </header>
+  <main>
+    <section class="queue-management">
+      <h2>Queue Management</h2>
+      <div>Current Queue: <span id="admin-queue-number">0</span></div>
+      <button id="next-patient">Next Patient</button>
+    </section>
+  </main>
+  <script>
+    let currentQueue = 0;
+
+    const adminQueueEl = document.getElementById("admin-queue-number");
+    const nextPatientButton = document.getElementById("next-patient");
+
+    nextPatientButton.addEventListener("click", () => {
+      if (currentQueue > 0) {
+        currentQueue--;
+        adminQueueEl.textContent = currentQueue;
+        alert("Next patient called!");
+      } else {
+        alert("No patients in queue.");
+      }
+    });
+
+    // Sync with app.js (simulate communication)
+    setInterval(() => {
+      const patientQueue = parseInt(localStorage.getItem("queueNumber")) || 0;
+      currentQueue = patientQueue;
+      adminQueueEl.textContent = currentQueue;
+    }, 1000);
+  </script>
+</body>
+</html>
