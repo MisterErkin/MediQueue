@@ -13,6 +13,7 @@ MediQueue is a lightweight and easy-to-use Queue Management System designed spec
 
 ### Admin Dashboard
 - **Queue Management**: Admin can view the list of waiting patients with options to mark them as served or remove them.
+- **Drag-and-Drop Functionality**: Admin can reorder patients in the queue by dragging and dropping.
 - **Dynamic Department Management**: Add or remove departments dynamically, and the patient side reflects these changes in real-time.
 - **Real-Time Sync**: Admin can see updates to the patient list in real time.
 

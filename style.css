@@ -173,6 +173,12 @@ body {
   body.admin-dashboard {
     background-color: #f0f4f8;
   }
+  #admin-patient-list li.dragging {
+    opacity: 0.5;
+    background-color: #d1ecf1;
+    border: 2px dashed #0c5460;
+  }
+  
   
   /* Patient List Section - Admin Side */
 .patient-list {
