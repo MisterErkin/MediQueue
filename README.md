@@ -33,6 +33,8 @@ MediQueue is a lightweight and easy-to-use Queue Management System designed spec
 To run this project, you'll need:
 - A web browser (Google Chrome, Firefox, etc.).
 - No additional servers or dependencies are required.
+- Or you can visit https://mistererkin.github.io/MediQueue/ Address
+- If you want to access to Admin DashBoard from link above create a new patient with name of "AdminAccess"
 
 ### Setup Instructions
 1. Download or clone this repository:
